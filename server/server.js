@@ -1,3 +1,4 @@
+// server.js
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -12,9 +13,10 @@ import orderRoutes from "./routes/orderRoutes.js";
 import reportRoutes from "./routes/sellerreportRoutes.js";
 import adminRoutes from "./routes/AdminRoutes.js";
 
+// dotenv
 dotenv.config();
 
-// ✅ Define `__dirname`
+// dirname fix for ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -25,7 +27,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(express.json());
 app.use(cors());
 
-// Database Connection
+// Connect to DB
 connectDB();
 
 // API Routes
@@ -36,15 +38,13 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/salesreport", reportRoutes);
 app.use("/api/admin", adminRoutes);
 
-app.get("/",(req,res)=>{
-  res.send("Server is running");
+// Root route
+app.get("/", (req, res) => {
+  res.send("Server is running on Vercel.");
 });
 
-// Error Handling Middleware
+// Error Handler
 app.use(errorMiddleware);
 
-// Start Server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
+// ✅ Export handler for Vercel
+export default app;
