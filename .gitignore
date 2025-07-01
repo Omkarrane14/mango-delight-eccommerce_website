@@ -63,9 +63,6 @@ Desktop.ini
 # TypeScript
 *.tsbuildinfo
 
-# Uploads or local assets (optional)
-server/uploads/
-
 # IDEs
 .idea/
 *.sublime-workspace
