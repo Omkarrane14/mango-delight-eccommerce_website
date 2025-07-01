@@ -16,8 +16,6 @@ const categoriesData = [
       "Hapus aamras",
       "Kesar Aamras",
       "Payri aamras",
-      
-      
     ],
   },
   {

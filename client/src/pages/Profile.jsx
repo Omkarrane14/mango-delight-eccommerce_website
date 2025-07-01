@@ -35,7 +35,7 @@ function Profile() {
           return;
         }
         const response = await axios.get(
-          "http://localhost:5000/api/users/profile",
+          "https://mango-delight-eccommerce-website-hv.vercel.app/api/users/profile",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -67,7 +67,7 @@ function Profile() {
         }
 
         const response = await axios.get(
-          "http://localhost:5000/api/users/orders",
+          "https://mango-delight-eccommerce-website-hv.vercel.app/api/users/orders",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -96,7 +96,7 @@ function Profile() {
         }
 
         const response = await axios.get(
-          "http://localhost:5000/api/users/wishlist",
+          "https://mango-delight-eccommerce-website-hv.vercel.app/api/users/wishlist",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -143,7 +143,7 @@ function Profile() {
         }
       });
       await axios.put(
-        "http://localhost:5000/api/users/editprofile",
+        "https://mango-delight-eccommerce-website-hv.vercel.app/api/users/editprofile",
         formDataToSend,
         {
           headers: {
@@ -176,7 +176,7 @@ function Profile() {
                   formData.profilePic instanceof File
                     ? URL.createObjectURL(formData.profilePic)
                     : user?.profilePic
-                    ? `http://localhost:5000/uploads/${user.profilePic}`
+                    ? `https://mango-delight-eccommerce-website-hv.vercel.app/uploads/${user.profilePic}`
                     : Defaultimage
                 }
                 alt="Profile"
@@ -361,7 +361,7 @@ function Profile() {
                       className="list-group-item d-flex align-items-center"
                     >
                       <img
-                        src={`http://localhost:5000/uploads/${item.images}`}
+                        src={`https://mango-delight-eccommerce-website-hv.vercel.app/uploads/${item.images}`}
                         alt={item.name}
                         className="me-2 rounded"
                         style={{

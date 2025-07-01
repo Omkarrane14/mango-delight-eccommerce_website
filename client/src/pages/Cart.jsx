@@ -53,7 +53,7 @@ const CheckoutForm = ({
 
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/users/profile",
+        "https://mango-delight-eccommerce-website-hv.vercel.app/api/users/profile",
         {
           headers: { Authorization: `Bearer ${authToken}` },
         }
@@ -127,7 +127,7 @@ const CheckoutForm = ({
       console.log("Placing order with PaymentIntent ID:", paymentIntentId);
 
       const response = await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://mango-delight-eccommerce-website-hv.vercel.app/api/orders/place-order",
         {
           cartItems,
           totalAmount,
@@ -154,7 +154,7 @@ const CheckoutForm = ({
           const productId = item.product._id || item.product; // Ensure correct product ID extraction
 
           try {
-            await axios.delete("http://localhost:5000/api/users/cart/remove", {
+            await axios.delete("https://mango-delight-eccommerce-website-hv.vercel.app/api/users/cart/remove", {
               headers: {
                 Authorization: `Bearer ${authToken}`,
               },
@@ -234,7 +234,7 @@ const Cart = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/users/cart/",
+        "https://mango-delight-eccommerce-website-hv.vercel.app/api/users/cart/",
         {
           headers: { Authorization: `Bearer ${authToken}` },
         }
@@ -253,7 +253,7 @@ const Cart = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/users/profile`,
+        `https://mango-delight-eccommerce-website-hv.vercel.app/api/users/profile`,
         {
           headers: { Authorization: `Bearer ${authToken}` },
         }
@@ -290,7 +290,7 @@ const Cart = () => {
   const updateQuantity = async (productId, newQuantity) => {
     try {
       await axios.post(
-        `http://localhost:5000/api/users/cart/update`,
+        `https://mango-delight-eccommerce-website-hv.vercel.app/api/users/cart/update`,
         { productId, quantity: newQuantity },
         { headers: { Authorization: `Bearer ${authToken}` } }
       );
@@ -302,7 +302,7 @@ const Cart = () => {
 
   const removeFromCart = async (productId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/users/cart/remove`, {
+      await axios.delete(`https://mango-delight-eccommerce-website-hv.vercel.app/api/users/cart/remove`, {
         headers: { Authorization: `Bearer ${authToken}` },
         data: { productId },
       });
@@ -340,7 +340,7 @@ const Cart = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/orders/create-payment-intent",
+        "https://mango-delight-eccommerce-website-hv.vercel.app/api/orders/create-payment-intent",
         {
           amount: totalPrice,
           customerAddress: {
@@ -422,7 +422,7 @@ const Cart = () => {
                   <tr key={item.product._id}>
                     <td className="d-flex align-items-center">
                       <img
-                        src={`http://localhost:5000/uploads/${item.product.images}`}
+                        src={`https://mango-delight-eccommerce-website-hv.vercel.app/uploads/${item.product.images}`}
                         alt={item.product.name}
                         width="60"
                         className="rounded me-3"
