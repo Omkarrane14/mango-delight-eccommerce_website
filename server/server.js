@@ -36,6 +36,10 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/salesreport", reportRoutes);
 app.use("/api/admin", adminRoutes);
 
+app.get("/",(req,res)=>{
+  res.send("Server is running");
+});
+
 // Error Handling Middleware
 app.use(errorMiddleware);
 
