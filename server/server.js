@@ -1,10 +1,11 @@
-// server.js
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import connectDB from "./config/Connection.js";
+
+// Import Routes
 import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
@@ -13,21 +14,30 @@ import orderRoutes from "./routes/orderRoutes.js";
 import reportRoutes from "./routes/sellerreportRoutes.js";
 import adminRoutes from "./routes/AdminRoutes.js";
 
-// dotenv
+// Load environment variables
 dotenv.config();
 
-// dirname fix for ES Modules
+// Fix for __dirname in ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Initialize app
 const app = express();
 
-// Middleware
+// Serve static files (uploads)
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-app.use(express.json());
-app.use(cors());
 
-// Connect to DB
+// Parse JSON request bodies
+app.use(express.json());
+
+// ✅ FIXED: Configure CORS to allow frontend domain
+app.use(cors({
+  origin: "https://mango-delight-eccommerce-website.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
+// Connect to MongoDB
 connectDB();
 
 // API Routes
@@ -43,8 +53,8 @@ app.get("/", (req, res) => {
   res.send("Server is running on Vercel.");
 });
 
-// Error Handler
+// Error handler middleware
 app.use(errorMiddleware);
 
-// ✅ Export handler for Vercel
+// ✅ Export Express app for Vercel
 export default app;
