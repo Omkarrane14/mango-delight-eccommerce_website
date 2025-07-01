@@ -4,7 +4,7 @@ import Footer from "../Components/Footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import backgroundImage from "../assets/images/Homep.png";
+import backgroundImage from "../assets/images/homep.png";
 import { Link } from "react-router-dom";
 import CategorySection from "../Components/CategorySection";
 
