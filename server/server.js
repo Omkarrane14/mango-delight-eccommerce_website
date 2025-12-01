@@ -4,8 +4,6 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import connectDB from "./config/Connection.js";
-
-// Import Routes
 import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
@@ -14,31 +12,38 @@ import orderRoutes from "./routes/orderRoutes.js";
 import reportRoutes from "./routes/sellerreportRoutes.js";
 import adminRoutes from "./routes/AdminRoutes.js";
 
-// Load environment variables
 dotenv.config();
 
-// Fix for __dirname in ES Modules
+// Get __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Initialize app
 const app = express();
 
-// Serve static files (uploads)
+// Middleware
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
-// Parse JSON request bodies
 app.use(express.json());
 
-// ✅ FIXED: Configure CORS to allow frontend domain
-app.use(cors({
-  origin: "https://mango-delight-eccommerce-website.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+// ⭐ FIX: Proper CORS setup
+app.use(
+  cors({
+    origin: [
+      "https://mango-delight-eccommerce-website.vercel.app/", // frontend
+      "http://localhost:3000", // local dev (optional)
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
-// Connect to MongoDB
+// Database Connection
 connectDB();
+
+// ⭐ Default Route to check server is working
+app.get("/", (req, res) => {
+  res.send("✅ Artisans Backend Server is Running Successfully!");
+});
 
 // API Routes
 app.use("/api/users", userRoutes);
@@ -48,13 +53,11 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/salesreport", reportRoutes);
 app.use("/api/admin", adminRoutes);
 
-// Root route
-app.get("/", (req, res) => {
-  res.send("Server is running on Vercel.");
-});
-
-// Error handler middleware
+// Error Handling Middleware
 app.use(errorMiddleware);
 
-// ✅ Export Express app for Vercel
-export default app;
+// Start Server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
