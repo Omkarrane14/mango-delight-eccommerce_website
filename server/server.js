@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "https://mangoshop.onrender.com", // frontend
+      "https://mango-delight-eccommerce-website.vercel.app/", // frontend
       "http://localhost:3000", // local dev (optional)
     ],
     credentials: true,
