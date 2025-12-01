@@ -33,7 +33,7 @@ const CheckoutForm = () => {
       }
 
       const { data } = await axios.post(
-        "https://mango-delight-eccommerce-website-hv.vercel.app/api/orders/confirm-payment",
+        "https://mangoshop.onrender.com/api/orders/confirm-payment",
         {
           paymentMethodId: paymentMethod.id,
         },

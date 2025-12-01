@@ -15,7 +15,7 @@ const LandingPage = () => {
   const API_URL = "https://mango-delight-eccommerce-website-hv.vercel.app";
 
   useEffect(() => {
-    fetch("https://mango-delight-eccommerce-website-hv.vercel.app/api/products")
+    fetch("https://mangoshop.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -193,7 +193,7 @@ const LandingPage = () => {
                     {/* Product Image */}
                     <div className="position-relative">
                       <img
-                        src={`https://mango-delight-eccommerce-website-hv.vercel.app/uploads/${product.images[0]}`}
+                        src={`https://mangoshop.onrender.com/uploads/${product.images[0]}`}
                         alt={product.title}
                         className="card-img-top rounded-top-4"
                         style={{
@@ -377,7 +377,7 @@ const LandingPage = () => {
                     {/* Product Image */}
                     <div className="position-relative">
                       <img
-                        src={`https://mango-delight-eccommerce-website-hv.vercel.app/uploads/${product.images[0]}`}
+                        src={`https://mangoshop.onrender.com/uploads/${product.images[0]}`}
                         alt={product.title}
                         className="card-img-top rounded-top-4"
                         style={{

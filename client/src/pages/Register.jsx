@@ -61,7 +61,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "https://mango-delight-eccommerce-website-hv.vercel.app/api/users/register",
+        "https://mangoshop.onrender.com/api/users/register",
         {
           name: fullName,
           email,

@@ -31,7 +31,7 @@ function SellerProfile() {
         }
 
         const response = await axios.get(
-          `https://mango-delight-eccommerce-website-hv.vercel.app/api/users/profile/`,
+          `https://mangoshop.onrender.com/api/users/profile/`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -82,7 +82,7 @@ function SellerProfile() {
       });
 
       const response = await axios.put(
-        `https://mango-delight-eccommerce-website-hv.vercel.app/api/users/editprofile`,
+        `https://mangoshop.onrender.com/api/users/editprofile`,
         formDataToSend,
         {
           headers: {
@@ -122,7 +122,7 @@ function SellerProfile() {
           <img
             src={
               seller.profilePic
-                ? `https://mango-delight-eccommerce-website-hv.vercel.app/uploads/${seller.profilePic}`
+                ? `https://mangoshop.onrender.com/uploads/${seller.profilePic}`
                 : Defaultimage
             }
             alt="Profile"

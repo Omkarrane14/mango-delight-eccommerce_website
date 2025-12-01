@@ -17,7 +17,7 @@ const OrderDetails = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          `https://mango-delight-eccommerce-website-hv.vercel.app/api/orders/${orderId}`,
+          `https://mangoshop.onrender.com/api/orders/${orderId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -130,7 +130,7 @@ const OrderDetails = () => {
                     <td>{item.product.name}</td>
                     <td className="print-hidden">
                       <img
-                        src={`https://mango-delight-eccommerce-website-hv.vercel.app/uploads/${item.product.images[0]}`}
+                        src={`https://mangoshop.onrender.com/uploads/${item.product.images[0]}`}
                         alt={item.product.name}
                         width="50"
                         height="50"

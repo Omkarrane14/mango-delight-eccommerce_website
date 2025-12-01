@@ -17,7 +17,7 @@ const Wishlist = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "https://mango-delight-eccommerce-website-hv.vercel.app/api/users/wishlist/",
+          "https://mangoshop.onrender.com/api/users/wishlist/",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -62,7 +62,7 @@ const Wishlist = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "https://mango-delight-eccommerce-website-hv.vercel.app/api/users/wishlist/remove",
+        "https://mangoshop.onrender.com/api/users/wishlist/remove",
         { productId },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -127,7 +127,7 @@ const Wishlist = () => {
                 <div className="card border-0 shadow-lg rounded-lg overflow-hidden position-relative">
                   <div className="position-relative">
                     <img
-                      src={`https://mango-delight-eccommerce-website-hv.vercel.app/uploads/${item.images[0]}`}
+                      src={`https://mangoshop.onrender.com/uploads/${item.images[0]}`}
                       className="card-img-top"
                       alt={item.name}
                     />

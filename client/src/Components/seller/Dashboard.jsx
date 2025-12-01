@@ -45,7 +45,7 @@ function SellDashboard() {
 
         // Fetch key metrics
         const response = await axios.get(
-          "https://mango-delight-eccommerce-website-hv.vercel.app/api/seller/dashboard",
+          "https://mangoshop.onrender.com/api/seller/dashboard",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -72,7 +72,7 @@ function SellDashboard() {
         if (!token) return;
 
         const response = await axios.get(
-          "https://mango-delight-eccommerce-website-hv.vercel.app/api/seller/dashboard",
+          "https://mangoshop.onrender.com/api/seller/dashboard",
           {
             headers: { Authorization: `Bearer ${token}` },
           }

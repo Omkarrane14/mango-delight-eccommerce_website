@@ -43,7 +43,7 @@ const Product = () => {
         quantity,
       };
 
-      const response = await fetch(`https://mango-delight-eccommerce-website-hv.vercel.app/api/users/cart/add`, {
+      const response = await fetch(`https://mangoshop.onrender.com/api/users/cart/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -104,7 +104,7 @@ const Product = () => {
   useEffect(() => {
     if (product) {
       axios
-        .get(`https://mango-delight-eccommerce-website-hv.vercel.app/api/products/category/${product.category}`)
+        .get(`https://mangoshop.onrender.com/api/products/category/${product.category}`)
         .then((response) => {
           setRelatedProducts(response.data);
         })
@@ -116,7 +116,7 @@ const Product = () => {
 
   useEffect(() => {
     axios
-      .get(`https://mango-delight-eccommerce-website-hv.vercel.app/api/products/${productId}`)
+      .get(`https://mangoshop.onrender.com/api/products/${productId}`)
       .then((response) => {
         setProduct(response.data);
         setLoading(false);
@@ -152,7 +152,7 @@ const Product = () => {
             <div className="col-md-6">
               <div className="card shadow-lg border-0">
                 <img
-                  src={`https://mango-delight-eccommerce-website-hv.vercel.app/uploads/${product.images[0]}`}
+                  src={`https://mangoshop.onrender.com/uploads/${product.images[0]}`}
                   className="img-fluid rounded"
                   alt={product.name}
                   style={{ maxHeight: "400px", objectFit: "cover" }}
@@ -163,7 +163,7 @@ const Product = () => {
                 {product.images.map((thumb, index) => (
                   <div key={index} className="col-3">
                     <img
-                      src={`https://mango-delight-eccommerce-website-hv.vercel.app/uploads/${thumb}`}
+                      src={`https://mangoshop.onrender.com/uploads/${thumb}`}
                       className="img-fluid border rounded cursor-pointer"
                       alt="Thumbnail"
                       style={{
@@ -299,7 +299,7 @@ const Product = () => {
                 <div key={related.id} className="col-md-4 p-3">
                   <div className="card shadow-sm border-0">
                     <img
-                      src={`https://mango-delight-eccommerce-website-hv.vercel.app/uploads/${related.images[0]}`}
+                      src={`https://mangoshop.onrender.com/uploads/${related.images[0]}`}
                       className="img-fluid rounded-top"
                       alt={related.name}
                       style={{ height: "200px", objectFit: "cover" }}

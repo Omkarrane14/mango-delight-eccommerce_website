@@ -14,7 +14,7 @@ function OrderManagement() {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "https://mango-delight-eccommerce-website-hv.vercel.app/api/orders/sellerorders",
+          "https://mangoshop.onrender.com/api/orders/sellerorders",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -33,7 +33,7 @@ function OrderManagement() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `https://mango-delight-eccommerce-website-hv.vercel.app/api/orders/${id}/status`,
+        `https://mangoshop.onrender.com/api/orders/${id}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -52,7 +52,7 @@ function OrderManagement() {
   const deleteOrder = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`https://mango-delight-eccommerce-website-hv.vercel.app/api/orders/${id}`, {
+      await axios.delete(`https://mangoshop.onrender.com/api/orders/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOrders((prevOrders) => prevOrders.filter((order) => order._id !== id));
