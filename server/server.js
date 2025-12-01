@@ -42,7 +42,7 @@ connectDB();
 
 // ⭐ Default Route to check server is working
 app.get("/", (req, res) => {
-  res.send("✅ Artisans Backend Server is Running Successfully!");
+  res.send("✅ mango shop Backend Server is Running Successfully!");
 });
 
 // API Routes
